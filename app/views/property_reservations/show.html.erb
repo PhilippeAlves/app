@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Returned:</strong>
+  <%= @property_reservation.returned %>
+</p>
+
+<p>
+  <strong>Property:</strong>
+  <%= @property_reservation.property %>
+</p>
+
+<p>
+  <strong>Reservation:</strong>
+  <%= @property_reservation.reservation %>
+</p>
+
+<%= link_to 'Edit', edit_property_reservation_path(@property_reservation) %> |
+<%= link_to 'Back', property_reservations_path %>

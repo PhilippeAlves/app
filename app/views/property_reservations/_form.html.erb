@@ -1,0 +1,29 @@
+<%= form_for(@property_reservation) do |f| %>
+  <% if @property_reservation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@property_reservation.errors.count, "error") %> prohibited this property_reservation from being saved:</h2>
+
+      <ul>
+      <% @property_reservation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :returned %><br>
+    <%= f.check_box :returned %>
+  </div>
+  <div class="field">
+    <%= f.label :property_id %><br>
+    <%= f.text_field :property_id %>
+  </div>
+  <div class="field">
+    <%= f.label :reservation_id %><br>
+    <%= f.text_field :reservation_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

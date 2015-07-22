@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Property Reservations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Returned</th>
+      <th>Property</th>
+      <th>Reservation</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @property_reservations.each do |property_reservation| %>
+      <tr>
+        <td><%= property_reservation.returned %></td>
+        <td><%= property_reservation.property %></td>
+        <td><%= property_reservation.reservation %></td>
+        <td><%= link_to 'Show', property_reservation %></td>
+        <td><%= link_to 'Edit', edit_property_reservation_path(property_reservation) %></td>
+        <td><%= link_to 'Destroy', property_reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Property reservation', new_property_reservation_path %>

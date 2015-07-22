@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hour: 2015-07-22
+  frequency_id: 
+  room_id: 
+
+two:
+  hour: 2015-07-22
+  frequency_id: 
+  room_id: 

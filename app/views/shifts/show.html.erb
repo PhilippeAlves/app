@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @shift.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @shift.description %>
+</p>
+
+<p>
+  <strong>Begin:</strong>
+  <%= @shift.begin %>
+</p>
+
+<p>
+  <strong>End:</strong>
+  <%= @shift.end %>
+</p>
+
+<%= link_to 'Edit', edit_shift_path(@shift) %> |
+<%= link_to 'Back', shifts_path %>
