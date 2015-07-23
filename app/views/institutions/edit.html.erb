@@ -1,6 +1,15 @@
-<h1>Editing Institution</h1>
+<div class="container">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#"><%= t('model.institution') %></a>
+        <ul class="nav navbar-nav brand">
+          <li><a href="#" id="save"><%= t('action.save') %></a></li>
+          <li><%= link_to t('action.cancel'), institutions_path %></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @institution %> |
-<%= link_to 'Back', institutions_path %>
+  <%= render 'form' %>
+</div>

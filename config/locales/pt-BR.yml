@@ -1,0 +1,31 @@
+pt-BR:
+  model:
+    institution: Instituição
+  head:
+    name: Nome
+    description: Descrição
+    actions: Ações
+  action:
+    save: salvar
+    new: novo
+    edit: editar
+    destroy: excluir
+    cancel: cancelar
+    back: voltar
+  tip:
+    show: Detalhes
+    edit: Editar
+    destroy: Excluir
+  alert:
+    warning: Atenção!
+    error: Erro!
+  question:
+    are_you_sure: Você realmente deseja fazer isso?
+  option:
+    y: sim
+    n: não
+  activerecord:
+    attributes:
+      institution:
+        name: Nome
+        description: Descrição

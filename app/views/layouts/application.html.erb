@@ -8,6 +8,22 @@
 </head>
 <body>
 
+<nav class="navbar navbar-default">
+  <a class="navbar-brand" href="#">App Name</a>
+  <ul class="nav navbar-nav">
+    <li><%= link_to 'Instituições', institutions_path %></li>
+    <li><%= link_to 'Blocos', departments_path %></li>
+    <li><%= link_to 'Andares', floors_path %></li>
+    <li><%= link_to 'Salas', rooms_path %></li>
+    <li><%= link_to 'Patrimônio', properties_path %></li>
+    <li><%= link_to 'Permissões', permissions_path %></li>
+    <li><%= link_to 'Turnos', shifts_path %></li>
+    <li><%= link_to 'Grupos de usuários', user_groups_path %></li>
+    <li><%= link_to 'Usuários', users_path %></li>
+    <li><%= link_to 'Reservas', reservations_path %></li>
+  </ul>
+</nav>
+
 <%= yield %>
 
 </body>
