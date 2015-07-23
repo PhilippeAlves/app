@@ -17,6 +17,7 @@
       <tr>
         <th><%= t('head.name') %></th>
         <th><%= t('head.description') %></th>
+        <th><%= t('head.institution') %></th>
         <th><%= t('head.actions') %></th>
       </tr>
     </thead>
@@ -26,7 +27,7 @@
         <tr>
           <td><%= department.name %></td>
           <td><%= department.description %></td>
-          <td><%= department.institution %></td>
+          <td><%= department.institution.name %></td>
           <td class="link-controls">
             
           <%= link_to department do %>
@@ -37,23 +38,14 @@
               <span class="glyphicon glyphicon-edit" title="<%= t('tip.edit') %>"></span>
             <% end %>
 
-            <%= link_to "#institution-#{institution.id}", :'data-toggle' => 'modal' do %>
+            <%= link_to "#department-#{department.id}", :'data-toggle' => 'modal' do %>
               <span class="glyphicon glyphicon-trash" title="<%= t('tip.destroy') %>"></span>
             <% end %>
-            <%= render 'modal', institution: institution %>
-
-
-            <td><%= link_to 'Show', department %></td>
-            <td><%= link_to 'Edit', edit_department_path(department) %></td>
-            <td><%= link_to 'Destroy', department, method: :delete, data: { confirm: 'Are you sure?' } %>
-            </td>
+            <%= render 'modal', department: department %>
           </td>
         </tr>
       <% end %>
     </tbody>
   </table>
 
-  <br>
-
-  <%= link_to 'New Department', new_department_path %>
 </div>

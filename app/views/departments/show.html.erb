@@ -1,19 +1,32 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#"><%= t('model.department') %></a>
+        <ul class="nav navbar-nav brand">
+          <li><%= link_to t('action.edit'), edit_institution_path(@department) %></li>
+          <li><%= link_to t('action.back'), departments_path %></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-<p>
-  <strong>Name:</strong>
-  <%= @department.name %>
-</p>
+  <div class="row">
+    <div class="col-md-12">
+      <p>
+        <strong><%= t('head.name') %>:</strong>
+        <%= @department.name %>
+      </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @department.description %>
-</p>
+      <p>
+        <strong><%= t('head.description') %>:</strong>
+        <%= @department.description %>
+      </p>
 
-<p>
-  <strong>Institution:</strong>
-  <%= @department.institution %>
-</p>
-
-<%= link_to 'Edit', edit_department_path(@department) %> |
-<%= link_to 'Back', departments_path %>
+      <p>
+        <strong><%= t('head.institution') %>:</strong>
+        <%= @department.institution.name %>
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,15 @@
-<h1>New Department</h1>
+<div class="container">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#"><%= t('model.department') %></a>
+        <ul class="nav navbar-nav brand">
+          <li><a href="#" id="save"><%= t('action.save') %></a></li>
+          <li><%= link_to t('action.cancel'), departments_path %></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', departments_path %>
+  <%= render 'form' %>
+</div>
