@@ -1,10 +1,37 @@
 pt-BR:
   model:
     institution: Instituição
+    department: Departamento
+    admin: Administrador
+    check_point: Checkpoint
+    floor: Andar
+    frequency: Frequência
+    permission: Permissão
+    property: Patrimônio
+    property_reservation: Patrimônios Reservados
+    reservation: Reserva
+    room: Sala 
+    shift: Turno
+    user: Usuário
+    user_group: Grupo de Usuário
+    user_group_permission: Permissão de Grupo de Usuário
   head:
     name: Nome
     description: Descrição
     actions: Ações
+    email: E-mail
+    password: Senha
+    created_at: Creado em
+    update_at: Alterado em
+    hour: Hora
+    date: Data
+    returned: Devolvido
+    begin: Início
+    end: Fim
+    card: Número do cartão
+    birthday: Data de nascimento
+    cpf: CPF
+    rg: RG
   action:
     save: salvar
     new: novo
@@ -29,3 +56,63 @@ pt-BR:
       institution:
         name: Nome
         description: Descrição
+      department:
+        name: Nome
+        description: Descrição
+        institution: Instituição
+      admin:
+        name: Nome
+        email: E-mail
+        password: Senha
+      check_point:
+        hour: Hora
+        frequency: Frequência
+        room: Sala
+      floor:
+        name: Nome
+        description: Descrição
+        department: Departamento
+      frequency:
+        date: Data
+        user: Usuário
+      permission:
+        name: Nome
+        description: Descrição
+      property:
+        name: Nome
+        description: Descrição
+        room: Sala
+      property_reservation:
+        returned: Devolvido
+        property: Patrimônio
+        reservation: Reserva
+      reservation:
+        date: Data
+        user: Usuário
+      room:
+        name: Nome
+        description: Descrição
+        permission: Permissão
+        floor: Andar
+      shift:
+        name: Nome
+        description: Descrição
+        begin: Início
+        end: Fim
+      user_group_permission:
+        user_group: Grupo de Usuário
+        permission: Permissão
+      user_group:
+        name: Nome
+        description: Descrição
+      user: 
+        name: Nome
+        email: E-mail
+        password: Senha
+        card: Número do cartão
+        birthday: Data de nascimento
+        cpf: CPF
+        rg: RG
+        user_group: Grupo de Usuário
+        shift: Turno
+            
