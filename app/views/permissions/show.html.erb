@@ -1,14 +1,27 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#"><%= t('model.permission') %></a>
+        <ul class="nav navbar-nav brand">
+          <li><%= link_to t('action.edit'), edit_permission_path(@permission) %></li>
+          <li><%= link_to t('action.back'), permissions_path %></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-<p>
-  <strong>Name:</strong>
-  <%= @permission.name %>
-</p>
+  <div class="row">
+    <div class="col-md-12">
+      <p>
+        <strong><%= t('head.name') %>:</strong>
+        <%= @permission.name %>
+      </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @permission.description %>
-</p>
-
-<%= link_to 'Edit', edit_permission_path(@permission) %> |
-<%= link_to 'Back', permissions_path %>
+      <p>
+        <strong><%= t('head.description') %>:</strong>
+        <%= @permission.description %>
+      </p>
+    </div>
+  </div>
+</div>

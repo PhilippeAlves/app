@@ -1,0 +1,23 @@
+<div class="modal fade" id="<%= "permission-#{permission.id}" %>">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title"><%= t('alert.warning') %></h4>
+      </div>
+      <div class="modal-body">
+        <p>
+          <strong>
+            <%= "#{t('action.destroy').capitalize} #{permission.name}!" %>
+          </strong>
+        </p>
+
+        <p><%= t('question.are_you_sure') %></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal"><%= t('option.n') %></button>
+        <%= link_to t('option.y'), permission, method: :delete, class: 'btn btn-danger' %>
+      </div>
+    </div>
+  </div>
+</div>

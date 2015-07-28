@@ -32,6 +32,21 @@ pt-BR:
     birthday: Data de nascimento
     cpf: CPF
     rg: RG
+    institution: Instituição
+    department: Departamento
+    admin: Administrador
+    check_point: Checkpoint
+    floor: Andar
+    frequency: Frequência
+    permission: Permissão
+    property: Patrimônio
+    property_reservation: Patrimônios Reservados
+    reservation: Reserva
+    room: Sala 
+    shift: Turno
+    user: Usuário
+    user_group: Grupo de Usuário
+    user_group_permission: Permissão de Grupo de Usuário
   action:
     save: salvar
     new: novo

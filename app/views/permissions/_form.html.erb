@@ -1,25 +1,32 @@
-<%= form_for(@permission) do |f| %>
-  <% if @permission.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@permission.errors.count, "error") %> prohibited this permission from being saved:</h2>
+<div class="container">
+  <div class="col-md-6">
+    <%= form_for(@permission, html: {class: 'from'}) do |f| %>
 
-      <ul>
-      <% @permission.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <% if @permission.errors.any? %>
+        <div id="error_explanation">
+          <ul>
+          <% @permission.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+      <div class="input-control">
+        <%= f.label :name %><br>
+        <%= f.text_field :name, class: 'form-control', autofocus: true %>
+      </div>
+
+      <div class="input-control">
+        <%= f.label :description %><br>
+        <%= f.text_area :description, rows: 5, class: 'form-control' %>
+      </div>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
+
+<script type="text/javascript">
+  $("#save").click(function(){
+    $("form:first").submit();
+  });
+</script>
