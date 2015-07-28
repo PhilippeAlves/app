@@ -138,9 +138,9 @@ ActiveRecord::Schema.define(version: 20150722194509) do
 
   create_table "user_groups", force: :cascade do |t|
     t.string   "name"
-    t.text     "desciption"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|

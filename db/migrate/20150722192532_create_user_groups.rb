@@ -2,7 +2,7 @@ class CreateUserGroups < ActiveRecord::Migration
   def change
     create_table :user_groups do |t|
       t.string :name
-      t.text :desciption
+      t.text :description
 
       t.timestamps null: false
     end

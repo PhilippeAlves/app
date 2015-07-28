@@ -1,14 +1,27 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#"><%= t('model.user_group') %></a>
+        <ul class="nav navbar-nav brand">
+          <li><%= link_to t('action.edit'), edit_user_group_path(@user_group) %></li>
+          <li><%= link_to t('action.back'), user_groups_path %></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user_group.name %>
-</p>
+  <div class="row">
+    <div class="col-md-12">
+      <p>
+        <strong><%= t('head.name') %>:</strong>
+        <%= @user_group.name %>
+      </p>
 
-<p>
-  <strong>Desciption:</strong>
-  <%= @user_group.desciption %>
-</p>
-
-<%= link_to 'Edit', edit_user_group_path(@user_group) %> |
-<%= link_to 'Back', user_groups_path %>
+      <p>
+        <strong><%= t('head.description') %>:</strong>
+        <%= @user_group.description %>
+      </p>
+    </div>
+  </div>
+</div>
