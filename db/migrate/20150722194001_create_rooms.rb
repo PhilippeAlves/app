@@ -5,6 +5,7 @@ class CreateRooms < ActiveRecord::Migration
       t.text :description
       t.references :permission, index: true, foreign_key: true
       t.references :floor, index: true, foreign_key: true
+      t.references :department, index: true, foreign_key: true
 
       t.timestamps null: false
     end
