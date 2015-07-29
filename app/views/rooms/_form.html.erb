@@ -1,33 +1,42 @@
-<%= form_for(@room) do |f| %>
-  <% if @room.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@room.errors.count, "error") %> prohibited this room from being saved:</h2>
+<div class="row">
+  <div class="col-md-6">
+    <%= form_for(@room, html: {class: 'from'}) do |f| %>
 
-      <ul>
-      <% @room.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <% if @room.errors.any? %>
+        <div id="error_explanation">
+          <ul>
+          <% @room.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+      <div class="input-control">
+        <%= f.label :name %><br>
+        <%= f.text_field :name, class: 'form-control', autofocus: true %>
+      </div>
+
+      <div class="input-control">
+        <%= f.label :description %><br>
+        <%= f.text_area :description, rows: 5, class: 'form-control' %>
+      </div>
+
+      <div class="input-control">
+        <%= f.label :permission %><br>
+        <%= f.collection_select :permission_id, Permission.all, :id, :name, {prompt: true},  {class: 'form-control'} %>
+      </div>
+
+      <div class="input-control">
+        <%= f.label :floor %><br>
+        <%= f.collection_select :floor_id, Floor.all, :id, :name, {prompt: true},  {class: 'form-control'} %>
+      </div>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :permission_id %><br>
-    <%= f.text_field :permission_id %>
-  </div>
-  <div class="field">
-    <%= f.label :floor_id %><br>
-    <%= f.text_field :floor_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
+
+<script type="text/javascript">
+  $("#save").click(function(){
+    $("form:first").submit();
+  });
+</script>

@@ -1,33 +1,52 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+ 
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#"><%= t('model.room') %></a>
+          <ul class="nav navbar-nav brand">
+            <li><%= link_to t('action.new'), new_room_path %></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-<h1>Listing Rooms</h1>
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th><%= t('head.name') %></th>
+          <th><%= t('head.description') %></th>
+          <th><%= t('head.permission') %></th>
+          <th><%= t('head.floor') %></th>
+          <th><%= t('head.actions') %></th>
+        </tr>
+      </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Permission</th>
-      <th>Floor</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+      <tbody>
+        <% @rooms.each do |room| %>
+          <tr>
+            <td><%= room.name %></td>
+            <td><%= room.description %></td>
+            <td><%= room.permission.name %></td>
+            <td><%= room.floor.name %></td>
+            <td class="link-controls">
+              
+            <%= link_to room do %>
+                <span class="glyphicon glyphicon-list-alt" title="<%= t('tip.show') %>"></span>
+              <% end %>
 
-  <tbody>
-    <% @rooms.each do |room| %>
-      <tr>
-        <td><%= room.name %></td>
-        <td><%= room.description %></td>
-        <td><%= room.permission %></td>
-        <td><%= room.floor %></td>
-        <td><%= link_to 'Show', room %></td>
-        <td><%= link_to 'Edit', edit_room_path(room) %></td>
-        <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+              <%= link_to edit_room_path(room) do %>
+                <span class="glyphicon glyphicon-edit" title="<%= t('tip.edit') %>"></span>
+              <% end %>
 
-<br>
+              <%= link_to "#room-#{room.id}", :'data-toggle' => 'modal' do %>
+                <span class="glyphicon glyphicon-trash" title="<%= t('tip.destroy') %>"></span>
+              <% end %>
+              <%= render 'modal', room: room %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<%= link_to 'New Room', new_room_path %>
+</div>
