@@ -26,6 +26,17 @@ class ShiftsController < ApplicationController
   def create
     @shift = Shift.new(shift_params)
 
+    hour = shift_params[:begin].split(":").at(0)
+    minute = shift_params[:begin].split(":").at(1)
+    time = Time.new(2000, 1, 1, hour, minute, 0)
+
+    @shift.begin = time
+
+    hour = shift_params[:end].split(":").at(0)
+    minute = shift_params[:end].split(":").at(1)
+    time = Time.new(2000, 1, 1, hour, minute, 0)
+    @shift.end = time
+
     respond_to do |format|
       if @shift.save
         format.html { redirect_to @shift, notice: 'Shift was successfully created.' }
@@ -40,6 +51,17 @@ class ShiftsController < ApplicationController
   # PATCH/PUT /shifts/1
   # PATCH/PUT /shifts/1.json
   def update
+    hour = shift_params[:begin].split(":").at(0)
+    minute = shift_params[:begin].split(":").at(1)
+    time = Time.new(2000, 1, 1, hour, minute, 0)
+
+    @shift.begin = time
+
+    hour = shift_params[:end].split(":").at(0)
+    minute = shift_params[:end].split(":").at(1)
+    time = Time.new(2000, 1, 1, hour, minute, 0)
+    @shift.end = time
+    
     respond_to do |format|
       if @shift.update(shift_params)
         format.html { redirect_to @shift, notice: 'Shift was successfully updated.' }
@@ -65,6 +87,8 @@ class ShiftsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_shift
       @shift = Shift.find(params[:id])
+      @shift.begin = format_time @shift.begin
+      @shift.end = format_time @shift.end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

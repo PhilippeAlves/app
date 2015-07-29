@@ -1,24 +1,37 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#"><%= t('model.room') %></a>
+        <ul class="nav navbar-nav brand">
+          <li><%= link_to t('action.edit'), edit_room_path(@room) %></li>
+          <li><%= link_to t('action.back'), rooms_path %></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-<p>
-  <strong>Name:</strong>
-  <%= @room.name %>
-</p>
+  <div class="row">
+    <div class="col-md-12">
+      <p>
+        <strong><%= t('head.name') %>:</strong>
+        <%= @room.name %>
+      </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @room.description %>
-</p>
+      <p>
+        <strong><%= t('head.description') %>:</strong>
+        <%= @room.description %>
+      </p>
 
-<p>
-  <strong>Permission:</strong>
-  <%= @room.permission %>
-</p>
+      <p>
+        <strong><%= t('head.permission') %>:</strong>
+        <%= @room.permission.name %>
+      </p>
 
-<p>
-  <strong>Floor:</strong>
-  <%= @room.floor %>
-</p>
-
-<%= link_to 'Edit', edit_room_path(@room) %> |
-<%= link_to 'Back', rooms_path %>
+      <p>
+        <strong><%= t('head.floor') %>:</strong>
+        <%= @room.floor.name %>
+      </p>
+    </div>
+  </div>
+</div>

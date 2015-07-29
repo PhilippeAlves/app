@@ -120,8 +120,8 @@ ActiveRecord::Schema.define(version: 20150722194509) do
   create_table "shifts", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.date     "begin"
-    t.date     "end"
+    t.datetime "begin"
+    t.datetime "end"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

@@ -1,19 +1,32 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#"><%= t('model.floor') %></a>
+        <ul class="nav navbar-nav brand">
+          <li><%= link_to t('action.edit'), edit_floor_path(@floor) %></li>
+          <li><%= link_to t('action.back'), floors_path %></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-<p>
-  <strong>Name:</strong>
-  <%= @floor.name %>
-</p>
+  <div class="row">
+    <div class="col-md-12">
+      <p>
+        <strong><%= t('head.name') %>:</strong>
+        <%= @floor.name %>
+      </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @floor.description %>
-</p>
+      <p>
+        <strong><%= t('head.description') %>:</strong>
+        <%= @floor.description %>
+      </p>
 
-<p>
-  <strong>Department:</strong>
-  <%= @floor.department %>
-</p>
-
-<%= link_to 'Edit', edit_floor_path(@floor) %> |
-<%= link_to 'Back', floors_path %>
+      <p>
+        <strong><%= t('head.department') %>:</strong>
+        <%= @floor.department.name %>
+      </p>
+    </div>
+  </div>
+</div>

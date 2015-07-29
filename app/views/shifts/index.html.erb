@@ -1,33 +1,51 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+        
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#"><%= t('model.shift') %></a>
+        <ul class="nav navbar-nav brand">
+          <li><%= link_to t('action.new'), new_shift_path %></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-<h1>Listing Shifts</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Begin</th>
-      <th>End</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @shifts.each do |shift| %>
+  <table class="table table-bordered table-hover">
+    <thead>
       <tr>
-        <td><%= shift.name %></td>
-        <td><%= shift.description %></td>
-        <td><%= shift.begin %></td>
-        <td><%= shift.end %></td>
-        <td><%= link_to 'Show', shift %></td>
-        <td><%= link_to 'Edit', edit_shift_path(shift) %></td>
-        <td><%= link_to 'Destroy', shift, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th><%= t('head.name') %></th>
+        <th><%= t('head.description') %></th>
+        <th><%= t('head.begin') %></th>
+        <th><%= t('head.end') %></th>
+        <th><%= t('head.actions') %></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @shifts.each do |shift| %>
+        <tr>
+          <td><%= shift.name %></td>
+          <td><%= shift.description %></td>
+          <td><%= format_time shift.begin %></td>
+          <td><%= format_time shift.end %></td>
+          <td class="link-controls">
+            <%= link_to shift do %>
+              <span class="glyphicon glyphicon-list-alt" title="<%= t('tip.show') %>"></span>
+            <% end %>
 
-<%= link_to 'New Shift', new_shift_path %>
+            <%= link_to edit_shift_path(shift) do %>
+              <span class="glyphicon glyphicon-edit" title="<%= t('tip.edit') %>"></span>
+            <% end %>
+
+            <%= link_to "#shift-#{shift.id}", :'data-toggle' => 'modal' do %>
+              <span class="glyphicon glyphicon-trash" title="<%= t('tip.destroy') %>"></span>
+            <% end %>
+            <%= render 'modal', shift: shift %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
