@@ -13,9 +13,11 @@ class UserGroupPermissionsController < ApplicationController
     
     respond_to do |format|
       if @user_group_permission.save
-        format.html {redirect_to user_group_permissions_path(permission), notice: 'adicionado!' }
+        flash[:success] = 'adicionado!'
+        format.html {redirect_to user_group_permissions_path(permission) }
       else
-        format.html {redirect_to user_group_permissions_path(permission), notice: 'não foi adicionado' }
+        flash[:error] = 'não foi adicionado'
+        format.html {redirect_to user_group_permissions_path(permission) }
       end
     end
   end
@@ -24,7 +26,8 @@ class UserGroupPermissionsController < ApplicationController
     @user_group_permission.destroy
     permission = {permission_id: @user_group_permission.permission_id}
     respond_to do |format|
-      format.html { redirect_to user_group_permissions_path(permission), notice: 'Removido!' }
+      flash[:info] = 'Removido!'
+      format.html { redirect_to user_group_permissions_path(permission) }
     end
   end
 
