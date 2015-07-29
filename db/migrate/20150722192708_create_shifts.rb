@@ -3,8 +3,8 @@ class CreateShifts < ActiveRecord::Migration
     create_table :shifts do |t|
       t.string :name
       t.text :description
-      t.date :begin
-      t.date :end
+      t.datetime :begin
+      t.datetime :end
 
       t.timestamps null: false
     end

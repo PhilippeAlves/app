@@ -1,33 +1,58 @@
-<%= form_for(@shift) do |f| %>
-  <% if @shift.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@shift.errors.count, "error") %> prohibited this shift from being saved:</h2>
+<div class="row">
+  <div class="col-md-6">
+    <%= form_for(@shift, html: {class: 'from'}) do |f| %>
 
-      <ul>
-      <% @shift.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <% if @shift.errors.any? %>
+        <div id="error_explanation">
+          <ul>
+          <% @shift.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+      <div class="input-control">
+        <%= f.label :name %><br>
+        <%= f.text_field :name, class: 'form-control', autofocus: true %>
+      </div>
+
+      <div class="input-control">
+        <%= f.label :description %><br>
+        <%= f.text_area :description, rows: 5, class: 'form-control' %>
+      </div>
+
+      <%= f.label :begin %>
+
+      <div class="input-group timepicker" data-placement="right" data-align="top" data autoclose="true">
+        <%= f.text_field :begin, class: 'form-control time' %>
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-time"></span>
+        </span>
+      </div>
+
+      <%= f.label :end %>
+      <div class="input-group timepicker" data-placement="right" data-align="top" data autoclose="true">
+        <%= f.text_field :end, class: 'form-control time' %>
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-time"></span>
+        </span>
+      </div>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :begin %><br>
-    <%= f.date_select :begin %>
-  </div>
-  <div class="field">
-    <%= f.label :end %><br>
-    <%= f.date_select :end %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
+
+<script type="text/javascript">
+  var input = $('.time').clockpicker({
+    placement: 'top',
+    align: 'left',
+    autoclose: true,
+    'default': 'now'
+  });
+</script>
+
+<script type="text/javascript">
+  $("#save").click(function(){
+    $("form:first").submit();
+  });
+</script>
