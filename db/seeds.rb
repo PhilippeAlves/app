@@ -1,10 +1,10 @@
 puts "inserindo instituição..."
-Instituition.create(name: 'Instituição exemplo', description: 'Descrição da instituição exemplo')
+Institution.create(name: 'Instituição exemplo', description: 'Descrição da instituição exemplo')
 
 puts "inserindo departamentos..."
-Department.create(instituition_id: 1, name: 'Segurança', description: 'Responsável pela segurança da instituição')
-Department.create(instituition_id: 1, name: 'Limpeza', description: 'Responsável pela limpeza da instituição')
-Department.create(instituition_id: 1, name: 'TI', description: 'Responsável pelo suprte e manutenção de equipamentos da instituição')
+Department.create(institution_id: 1, name: 'Segurança', description: 'Responsável pela segurança da instituição')
+Department.create(institution_id: 1, name: 'Limpeza', description: 'Responsável pela limpeza da instituição')
+Department.create(institution_id: 1, name: 'TI', description: 'Responsável pelo suprte e manutenção de equipamentos da instituição')
 
 puts "inserindo andares..."
 Floor.create(name: 'Térreo', description: 'Andar térreo do bloco')
