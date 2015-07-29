@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :properties
   resources :check_points
   resources :rooms
-  resources :user_group_permissions
+  resources :user_group_permissions, only: [:index, :create, :destroy]
   resources :permissions
   resources :floors
   resources :departments
@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   resources :reservations
   resources :users
   resources :shifts
-  resources :user_groups  
+  resources :user_groups
 end
