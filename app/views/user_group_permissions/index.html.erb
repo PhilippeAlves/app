@@ -1,29 +1,46 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<h1>Listing User Group Permissions</h1>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#"><%= t('model.user_group_permission') %></a>
+        <ul class="nav navbar-nav brand">
+          <li><%= link_to t('action.back'), permissions_path %></li>
+        </ul>
+        <%= render 'form' %>
+      </div>
+    </div>
+  </nav>
 
-<table>
-  <thead>
-    <tr>
-      <th>User group</th>
-      <th>Permission</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <% unless notice.nil? %>
+    <div class="alert alert-info">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <strong><%= notice %></strong>
+    </div>
+  <% end %>
 
-  <tbody>
-    <% @user_group_permissions.each do |user_group_permission| %>
+  <table class="table table-bordered table-hover">
+    <thead>
       <tr>
-        <td><%= user_group_permission.user_group %></td>
-        <td><%= user_group_permission.permission %></td>
-        <td><%= link_to 'Show', user_group_permission %></td>
-        <td><%= link_to 'Edit', edit_user_group_permission_path(user_group_permission) %></td>
-        <td><%= link_to 'Destroy', user_group_permission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th><%= t('head.user_group') %></th>
+        <th><%= t('head.permission') %></th>
+        <th><%= t('head.actions') %></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
-<%= link_to 'New User group permission', new_user_group_permission_path %>
+    <tbody>
+      <% @user_group_permissions.each do |user_group_permission| %>
+        <tr>
+          <td><%= user_group_permission.user_group.name %></td>
+          <td><%= user_group_permission.permission.name %></td>
+          <td class="link-controls">
+            <%= link_to "#user_group_permission-#{user_group_permission.id}", :'data-toggle' => 'modal' do %>
+              <span class="glyphicon glyphicon-trash" title="<%= t('tip.destroy') %>"></span>
+            <% end %>
+            <%= render 'modal', user_group_permission: user_group_permission %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

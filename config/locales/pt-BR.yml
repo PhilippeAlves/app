@@ -54,10 +54,12 @@ pt-BR:
     destroy: excluir
     cancel: cancelar
     back: voltar
+    add: Adicionar
   tip:
     show: Detalhes
     edit: Editar
     destroy: Excluir
+    add: Adicionar
   alert:
     warning: Atenção!
     error: Erro!

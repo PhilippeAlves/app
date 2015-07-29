@@ -26,6 +26,10 @@
           <td><%= permission.name %></td>
           <td><%= permission.description %></td>
           <td class="link-controls">
+            <%= link_to user_group_permissions_path(permission_id: permission.id) do %>
+              <span class="glyphicon glyphicon-plus-sign" title="<%= t('tip.add') +" "+ t('model.user_group') %>"></span>
+            <% end %>
+
             <%= link_to permission do %>
               <span class="glyphicon glyphicon-list-alt" title="<%= t('tip.show') %>"></span>
             <% end %>

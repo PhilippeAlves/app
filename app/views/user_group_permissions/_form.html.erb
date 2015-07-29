@@ -1,25 +1,11 @@
-<%= form_for(@user_group_permission) do |f| %>
-  <% if @user_group_permission.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user_group_permission.errors.count, "error") %> prohibited this user_group_permission from being saved:</h2>
+<div class="container">
+  <div class="col-md-4">
+    <%= form_for(@user_group_permission, html: {class: 'navbar-form'}) do |f| %>
 
-      <ul>
-      <% @user_group_permission.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+      <%= f.hidden_field :permission_id, value: params[:permission_id] %>
 
-  <div class="field">
-    <%= f.label :user_group_id %><br>
-    <%= f.text_field :user_group_id %>
+        <%= f.collection_select :user_group_id, UserGroup.all, :id, :name, {prompt: true}, {class: 'form-control'} %>
+      <%= f.submit t('action.add'), class: 'btn btn-default' %>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :permission_id %><br>
-    <%= f.text_field :permission_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
