@@ -45,12 +45,9 @@ ActiveRecord::Schema.define(version: 20150722194509) do
   create_table "floors", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "department_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
-
-  add_index "floors", ["department_id"], name: "index_floors_on_department_id"
 
   create_table "frequencies", force: :cascade do |t|
     t.date     "date"
@@ -110,10 +107,12 @@ ActiveRecord::Schema.define(version: 20150722194509) do
     t.text     "description"
     t.integer  "permission_id"
     t.integer  "floor_id"
+    t.integer  "department_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
 
+  add_index "rooms", ["department_id"], name: "index_rooms_on_department_id"
   add_index "rooms", ["floor_id"], name: "index_rooms_on_floor_id"
   add_index "rooms", ["permission_id"], name: "index_rooms_on_permission_id"
 
