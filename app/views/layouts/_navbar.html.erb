@@ -1,0 +1,21 @@
+<nav class="navbar navbar-default">
+  <a class="navbar-brand" href="#">App Name</a>
+  <ul class="nav navbar-nav">
+    <li><%= link_to 'Turnos', shifts_path %></li>
+    <li><%= link_to 'Grupos de usuários', user_groups_path %></li>
+    <li><%= link_to 'Usuários', users_path %></li>
+    <li><%= link_to 'Frequência de usuários', user_frequencies_path %></li>
+  </ul>
+
+  <ul class="nav navbar-nav pull-right">
+    <li><%= link_to 'Sair', destroy_session_path %></li>
+  </ul>
+</nav>
+
+<%# link_to 'Instituições', institutions_path %>
+<%# link_to 'Departamentos', departments_path %>
+<%# link_to 'Andares', floors_path %>
+<%# link_to 'Salas', rooms_path %>
+<%# link_to 'Patrimônio', properties_path %>
+<%# link_to 'Permissões', permissions_path %>
+<%# link_to 'Reservas', reservations_path %>

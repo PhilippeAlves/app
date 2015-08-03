@@ -15,5 +15,7 @@ module ApplicationHelper
     end
   end
 
-  
+  def authenticated?
+    session[:admin]
+  end
 end
