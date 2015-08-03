@@ -1,0 +1,2 @@
+module UserFrequenciesHelper
+end

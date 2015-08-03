@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :user_frequencies
   root 'welcome#index'
 
   resources :property_reservations
