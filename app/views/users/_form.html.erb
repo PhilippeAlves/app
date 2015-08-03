@@ -34,7 +34,7 @@
 
       <div class="input-control">
         <%= f.label :birthday %><br>
-        <%= f.date_select :birthday, rows: 5, class: 'form-control' %>
+        <%= f.date_field :birthday, class: 'form-control datepicker' %>
       </div>
 
       <div class="input-control">
@@ -51,11 +51,6 @@
         <%= f.label :card %><br>
         <%= f.text_field :card, class: 'form-control'%>
       </div>
-
-      <div class="input-control">
-        <%= f.label :password %><br>
-        <%= f.text_field :password, class: 'form-control'%>
-      </div>
       
     <% end %>
   </div>
@@ -67,4 +62,10 @@
   $("#save").click(function(){
     $("form:first").submit();
   });
+
+  $('.datepicker').datepicker({
+    format: 'mm/dd/yyyy',
+    startDate: '-3d',
+    position: 'top'
+  })
 </script>

@@ -1,6 +1,10 @@
 class UserGroupsController < ApplicationController
   before_action :set_user_group, only: [:show, :edit, :update, :destroy]
 
+  before_action only: [:index, :new, :edit, :show, :create, :update, :destroy] do
+    redirect_to notfound_path unless authenticated?
+  end
+
   # GET /user_groups
   # GET /user_groups.json
   def index

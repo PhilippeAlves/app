@@ -31,7 +31,11 @@
             <td><%= user.shift.name %></td>
             <td class="link-controls">
               
-            <%= link_to user do %>
+              <%= link_to user_frequencies_path(user_id: user.id) do %>
+                <span class="glyphicon glyphicon-list-alt" title="Frequência"></span>
+              <% end %>
+
+              <%= link_to user do %>
                 <span class="glyphicon glyphicon-list-alt" title="<%= t('tip.show') %>"></span>
               <% end %>
 
