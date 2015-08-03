@@ -1,43 +1,52 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+ 
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#"><%= t('model.user') %></a>
+          <ul class="nav navbar-nav brand">
+            <li><%= link_to t('action.new'), new_user_path %></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-<h1>Listing Users</h1>
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th><%= t('head.name') %></th>
+          <th><%= t('head.email') %></th>
+          <th><%= t('head.user_group') %></th>
+          <th><%= t('head.shift') %></th>
+          <th><%= t('head.actions') %></th>
+        </tr>
+      </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Password</th>
-      <th>Card</th>
-      <th>Birthday</th>
-      <th>Cpf</th>
-      <th>Rg</th>
-      <th>User group</th>
-      <th>Shift</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+            <td><%= user.user_group.name %></td>
+            <td><%= user.shift.name %></td>
+            <td class="link-controls">
+              
+            <%= link_to user do %>
+                <span class="glyphicon glyphicon-list-alt" title="<%= t('tip.show') %>"></span>
+              <% end %>
 
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= user.email %></td>
-        <td><%= user.password %></td>
-        <td><%= user.card %></td>
-        <td><%= user.birthday %></td>
-        <td><%= user.cpf %></td>
-        <td><%= user.rg %></td>
-        <td><%= user.user_group %></td>
-        <td><%= user.shift %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+              <%= link_to edit_user_path(user) do %>
+                <span class="glyphicon glyphicon-edit" title="<%= t('tip.edit') %>"></span>
+              <% end %>
 
-<br>
+              <%= link_to "#user-#{user.id}", :'data-toggle' => 'modal' do %>
+                <span class="glyphicon glyphicon-trash" title="<%= t('tip.destroy') %>"></span>
+              <% end %>
+              <%= render 'modal', user: user %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<%= link_to 'New User', new_user_path %>
+</div>

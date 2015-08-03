@@ -1,49 +1,62 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#"><%= t('model.user') %></a>
+        <ul class="nav navbar-nav brand">
+          <li><%= link_to t('action.edit'), edit_user_path(@user) %></li>
+          <li><%= link_to t('action.back'), users_path %></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+  <div class="row">
+    <div class="col-md-12">
+      <p>
+        <strong><%= t('head.name') %>:</strong>
+        <%= @user.name %>
+      </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+      <p>
+        <strong><%= t('head.email') %>:</strong>
+        <%= @user.email %>
+      </p>
 
-<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
+      <p>
+        <strong><%= t('head.cpf') %>:</strong>
+        <%= @user.cpf %>
+      </p>
 
-<p>
-  <strong>Card:</strong>
-  <%= @user.card %>
-</p>
+      <p>
+        <strong><%= t('head.rg') %>:</strong>
+        <%= @user.rg %>
+      </p>
 
-<p>
-  <strong>Birthday:</strong>
-  <%= @user.birthday %>
-</p>
+      <p>
+        <strong><%= t('head.birthday') %>:</strong>
+        <%=format_date_br @user.birthday %>
+      </p>
 
-<p>
-  <strong>Cpf:</strong>
-  <%= @user.cpf %>
-</p>
+      <p>
+        <strong><%= t('head.shift') %>:</strong>
+        <%= @user.shift.name %>
+      </p>
 
-<p>
-  <strong>Rg:</strong>
-  <%= @user.rg %>
-</p>
+      <p>
+        <strong><%= t('head.user_group') %>:</strong>
+        <%= @user.user_group.name %>
+      </p>
 
-<p>
-  <strong>User group:</strong>
-  <%= @user.user_group %>
-</p>
+      <p>
+        <strong><%= t('head.card') %>:</strong>
+        <%= @user.card %>
+      </p>
 
-<p>
-  <strong>Shift:</strong>
-  <%= @user.shift %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+      <p>
+        <strong><%= t('head.password') %>:</strong>
+        <%= @user.password %>
+      </p>
+    </div>
+  </div>
+</div>
