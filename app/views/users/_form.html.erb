@@ -1,53 +1,70 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<div class="row">
+  <div class="col-md-6">
+    <%= form_for(@user, html: {class: 'from'}) do |f| %>
 
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+      <div class="input-control">
+        <%= f.label :name %><br>
+        <%= f.text_field :name, class: 'form-control', autofocus: true %>
+      </div>
+
+      <div class="input-control">
+        <%= f.label :cpf %><br>
+        <%= f.text_field :cpf, class: 'form-control'%>
+      </div>
+
+      <div class="input-control">
+        <%= f.label :rg %><br>
+        <%= f.text_field :rg, class: 'form-control'%>
+      </div>
+
+      <div class="input-control">
+        <%= f.label :email %><br>
+        <%= f.text_field :email, class: 'form-control'%>
+      </div>
+
+      <div class="input-control">
+        <%= f.label :birthday %><br>
+        <%= f.date_select :birthday, rows: 5, class: 'form-control' %>
+      </div>
+
+      <div class="input-control">
+        <%= f.label :shift %><br>
+        <%= f.collection_select :shift_id, Shift.all, :id, :name, {prompt: true},  {class: 'form-control'} %>
+      </div>
+
+      <div class="input-control">
+        <%= f.label :user_group %><br>
+        <%= f.collection_select :user_group_id, UserGroup.all, :id, :name, {prompt: true},  {class: 'form-control'} %>
+      </div>
+
+      <div class="input-control">
+        <%= f.label :card %><br>
+        <%= f.text_field :card, class: 'form-control'%>
+      </div>
+
+      <div class="input-control">
+        <%= f.label :password %><br>
+        <%= f.text_field :password, class: 'form-control'%>
+      </div>
+      
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.text_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :card %><br>
-    <%= f.text_field :card %>
-  </div>
-  <div class="field">
-    <%= f.label :birthday %><br>
-    <%= f.date_select :birthday %>
-  </div>
-  <div class="field">
-    <%= f.label :cpf %><br>
-    <%= f.text_field :cpf %>
-  </div>
-  <div class="field">
-    <%= f.label :rg %><br>
-    <%= f.text_field :rg %>
-  </div>
-  <div class="field">
-    <%= f.label :user_group_id %><br>
-    <%= f.text_field :user_group_id %>
-  </div>
-  <div class="field">
-    <%= f.label :shift_id %><br>
-    <%= f.text_field :shift_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
+
+</br>
+
+<script type="text/javascript">
+  $("#save").click(function(){
+    $("form:first").submit();
+  });
+</script>
