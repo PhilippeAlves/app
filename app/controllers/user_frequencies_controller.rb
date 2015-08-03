@@ -1,8 +1,32 @@
 class UserFrequenciesController < ApplicationController
   before_action :set_user_frequency, only: [:show, :edit, :update, :destroy]
 
+  before_action only: [:index, :new, :edit, :show, :update, :destroy] do
+    redirect_to notfound_path unless authenticated?
+  end
+
   def index
-    @user_frequencies = UserFrequency.all
+    user_id = params[:user_id]
+
+    unless params[:filter].nil?
+      date_begin = DateTime.parse(params[:filter][:date_begin])
+      date_end = DateTime.parse(params[:filter][:date_end])
+    end
+
+    if (date_begin.nil? || date_end.nil?)
+      today = DateTime.now
+      date_begin = DateTime.new(today.year, today.month, today.day, 0, 0, 0)
+      date_end = DateTime.new(today.year, today.month, today.day, 23, 58, 59)
+    else
+      date_begin = DateTime.new(date_begin.year, date_begin.month, date_begin.day, 0, 0, 0)
+      date_end = DateTime.new(date_end.year, date_end.month, date_end.day, 23, 58, 59)
+    end
+
+    if user_id.nil?
+      @user_frequencies = UserFrequency.where(date: date_begin..date_end)
+    else
+      @user_frequencies = UserFrequency.where(user_id: user_id, date: date_begin..date_end)
+    end
   end
 
   def show

@@ -5,7 +5,13 @@
         <div class="navbar-header">
           <a class="navbar-brand" href="#"><%= t('model.user_frequency') %></a>
           <ul class="nav navbar-nav brand">
-            <li><%= link_to t('action.new'), new_user_frequency_path %></li>
+          <%= form_for :filter, html: {class: 'navbar-form'}, method: 'get', url: user_frequencies_path do |f| %>
+            <%= f.text_field :date_begin, class: 'form-control datepicker' %>
+            até
+            <%= f.text_field :date_end, class: 'form-control datepicker' %>
+            <%= f.submit 'Filtrar', class: 'btn btn-default' %>
+            <%= f.hidden_field 'user_id', value: params[:user_id] %>
+          <% end %>
           </ul>
         </div>
       </div>
@@ -31,5 +37,11 @@
         <% end %>
       </tbody>
     </table>
-
 </div>
+
+<script type="text/javascript">
+  $('.datepicker').datepicker({
+    format: 'dd/mm/yyyy',
+    autoclose: true
+  })
+</script>

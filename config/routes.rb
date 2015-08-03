@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root 'welcome#index'
+  get '/404' => 'welcome#notfound', as: 'notfound'
   
   resources :user_frequencies
   resources :property_reservations

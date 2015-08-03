@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  before_action only: [:index, :new, :edit, :show, :create, :update, :destroy] do
+    redirect_to notfound_path unless authenticated?
+  end
+
   # GET /users
   # GET /users.json
   def index

@@ -13,6 +13,7 @@
  * require_tree .
  *= require bootstrap.css
  *= require jquery-clockpicker.css
+ *= require datepicker.css
  *= require_self
  */
  
