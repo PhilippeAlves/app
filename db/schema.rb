@@ -128,9 +128,9 @@ ActiveRecord::Schema.define(version: 20150803130223) do
   create_table "user_frequencies", force: :cascade do |t|
     t.datetime "date"
     t.integer  "user_id"
-    t.string   "type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "type_frequency"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   add_index "user_frequencies", ["user_id"], name: "index_user_frequencies_on_user_id"

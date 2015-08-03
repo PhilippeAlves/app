@@ -1,31 +1,35 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+ 
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#"><%= t('model.user_frequency') %></a>
+          <ul class="nav navbar-nav brand">
+            <li><%= link_to t('action.new'), new_user_frequency_path %></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-<h1>Listing User Frequencies</h1>
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th><%= t('head.date') %></th>
+          <th><%= t('head.user') %></th>
+          <th><%= t('head.type_frequency') %></th>
+        </tr>
+      </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>User</th>
-      <th>Type</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+      <tbody>
+        <% @user_frequencies.each do |user_frequency| %>
+          <tr>
+            <td><%= format_date_br user_frequency.date %> às <%= format_time user_frequency.date %></td>
+            <td><%= user_frequency.user.name %></td>
+            <td><%= user_frequency.type_frequency %></td>
+           
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-  <tbody>
-    <% @user_frequencies.each do |user_frequency| %>
-      <tr>
-        <td><%= user_frequency.date %></td>
-        <td><%= user_frequency.user %></td>
-        <td><%= user_frequency.type %></td>
-        <td><%= link_to 'Show', user_frequency %></td>
-        <td><%= link_to 'Edit', edit_user_frequency_path(user_frequency) %></td>
-        <td><%= link_to 'Destroy', user_frequency, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New User frequency', new_user_frequency_path %>
+</div>
