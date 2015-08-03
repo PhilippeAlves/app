@@ -24,3 +24,15 @@
   color: #000;
   margin-right: 0.5em;
 }
+
+.card {
+  font-size: 48px;
+  width: 100%;
+  border: none;
+  background: #fff;
+  color: #fff;
+}
+
+.center {
+  text-align: center;
+}
