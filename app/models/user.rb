@@ -9,4 +9,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validates :card, presence: true, uniqueness: true
   validates :user_group_id, presence: true
+  validates :shift_id, presence: true
+  validates :cpf, presence: true
+
 end
