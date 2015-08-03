@@ -17,4 +17,8 @@ Rails.application.routes.draw do
   resources :users
   resources :shifts
   resources :user_groups
+
+  get '/register/frequency' => 'welcome#register_frequecy', as: 'register_frequecy'
+  get '/register/frequency/feedback' => 'welcome#feedback', as: 'frequecy_feedback'
+  post 'register/frequency/create' => 'user_frequencies#create', as: 'save_frequency'
 end

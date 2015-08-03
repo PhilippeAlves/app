@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <%= form_for :frequency, url: save_frequency_path, method: 'post' do |f| %>
+      <%= f.text_field :card, value: '', autofocus: true, class: 'card' %>
+    <% end %>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row well">
+    <h1 class="center">Aproxime o cartão</h1>
+  </div>
+</div>
