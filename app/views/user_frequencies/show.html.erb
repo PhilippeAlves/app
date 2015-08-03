@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @user_frequency.date %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_frequency.user %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @user_frequency.type %>
+</p>
+
+<%= link_to 'Edit', edit_user_frequency_path(@user_frequency) %> |
+<%= link_to 'Back', user_frequencies_path %>

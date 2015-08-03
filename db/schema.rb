@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150722194509) do
+ActiveRecord::Schema.define(version: 20150803130223) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "name"
@@ -124,6 +124,16 @@ ActiveRecord::Schema.define(version: 20150722194509) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "user_frequencies", force: :cascade do |t|
+    t.datetime "date"
+    t.integer  "user_id"
+    t.string   "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "user_frequencies", ["user_id"], name: "index_user_frequencies_on_user_id"
 
   create_table "user_group_permissions", force: :cascade do |t|
     t.integer  "user_group_id"
