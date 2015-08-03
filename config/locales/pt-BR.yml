@@ -15,6 +15,7 @@ pt-BR:
     user: Usuário
     user_group: Grupo de Usuário
     user_group_permission: Permissão de Grupo de Usuário
+    user_frequency: Frequência de Usuário
   head:
     name: Nome
     description: Descrição
@@ -47,6 +48,7 @@ pt-BR:
     user: Usuário
     user_group: Grupo de Usuário
     user_group_permission: Permissão de Grupo de Usuário
+    type_frequency: Entrada/Saída
   action:
     save: salvar
     new: novo

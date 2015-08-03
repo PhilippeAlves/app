@@ -1,3 +1,6 @@
+puts "inserindo administrador"
+Admin.create(name: 'admin', email: 'admin@email.com', password: 'admin')
+
 puts "inserindo instituição..."
 Institution.create(name: 'Instituição exemplo', description: 'Descrição da instituição exemplo')
 

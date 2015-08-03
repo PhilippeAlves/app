@@ -19,10 +19,18 @@ class UserFrequenciesController < ApplicationController
     user = User.where(card: params[:frequency][:card]).first
 
     unless user.nil?
-      puts '##################################################'
+      
       @user_frequency = UserFrequency.new
       @user_frequency.user = user
       @user_frequency.date = DateTime.now
+
+      par = (user.user_frequencies.count % 2 == 0)
+
+      if par
+        @user_frequency.type_frequency = "Entrada"
+      else
+        @user_frequency.type_frequency = "Saída"
+      end
 
       unless @user_frequency.save
         @user_frequency = nil
@@ -58,6 +66,6 @@ class UserFrequenciesController < ApplicationController
     end
 
     def user_frequency_params
-      params.require(:user_frequency).permit(:date, :user_id, :type)
+      params.require(:user_frequency).permit(:date, :user_id, :type_frequency)
     end
 end
