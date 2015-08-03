@@ -6,6 +6,6 @@ class User < ActiveRecord::Base
 
   validates :card, length: { minimum: 10 }
   validates :name, presence: true
-  validates :card, presence: true
+  validates :card, presence: true, uniqueness: true
   validates :user_group_id, presence: true
 end

@@ -14,4 +14,6 @@ module ApplicationHelper
       date.strftime("%H:%M")
     end
   end
+
+  
 end

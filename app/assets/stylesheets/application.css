@@ -33,6 +33,10 @@
   color: #fff;
 }
 
+.card:focus {
+  border: none;
+}
+
 .center {
   text-align: center;
 }

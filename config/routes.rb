@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  resources :user_frequencies
-  root 'welcome#index'
 
+  root 'welcome#index'
+  
+  resources :user_frequencies
   resources :property_reservations
   resources :properties
   resources :check_points
@@ -21,4 +22,9 @@ Rails.application.routes.draw do
   get '/register/frequency' => 'welcome#register_frequecy', as: 'register_frequecy'
   get '/register/frequency/feedback' => 'welcome#feedback', as: 'frequecy_feedback'
   post 'register/frequency/create' => 'user_frequencies#create', as: 'save_frequency'
+
+  get '/dashboard' => 'dashboard#index', as: 'dashboard'
+
+  post '/session/create' => 'sessions#create', as: 'create_session'
+  get '/session/destroy' => 'sessions#destroy', as: 'destroy_session'
 end
